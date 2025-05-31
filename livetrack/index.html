@@ -2,23 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>George's LiveTrack</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    iframe {
-      border: none;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-  <meta http-equiv="refresh" content="300">
+  <title>George is Offline</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta http-equiv="refresh" content="30">
 </head>
-<body>
-  <iframe src="https://livetrack.garmin.com/session/b6cd336f-0ac2-8d7b-aded-ce6327f35800/token/B0335D8EAEE313C6DF896D9595C336" allowfullscreen></iframe>
+<body class="h-screen w-screen overflow-hidden bg-gray-100">
+  <div class="bg-gradient-to-r from-orange-400 via-pink-300 to-pink-400 text-gray-800 text-sm md:text-base p-2 md:p-3 text-center font-medium">
+    George’s ride is done for today — check back tomorrow! You can leave this page open; it’ll update automatically. 🚴‍♂️✨
+  </div>
+
+  <iframe src="undefined" class="w-full h-[calc(100%-3rem)] border-none"></iframe>
 </body>
 </html>
