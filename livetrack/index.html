@@ -2,65 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>George's LiveTrack</title>
+  <title>George is Offline</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <meta http-equiv="refresh" content="300">
+  <meta http-equiv="refresh" content="30">
 </head>
-<body class="h-screen w-screen overflow-hidden bg-gray-100 flex flex-col relative">
-  <!-- Top Bar -->
-  <div class="bg-gradient-to-r from-purple-400 via-pink-300 to-pink-400 text-gray-800 text-sm md:text-base p-2 md:p-3 text-center font-medium flex justify-between items-center">
-    <div>George is online and riding! 🚴‍♂️✨</div>
-    <button id="sendMessageBtn" class="bg-white bg-opacity-80 text-gray-800 font-semibold rounded px-3 py-1 hover:bg-opacity-100 transition">
-      Send me a Message (I’ll see it as I ride!)
-    </button>
+<body class="h-screen w-screen overflow-hidden bg-gray-100">
+  <div class="bg-gradient-to-r from-orange-400 via-pink-300 to-pink-400 text-gray-800 text-sm md:text-base p-2 md:p-3 text-center font-medium">
+    George’s ride is done for today — check back tomorrow! You can leave this page open; it’ll update automatically. 🚴‍♂️✨
   </div>
 
-  <!-- Fullscreen Iframe -->
-  <iframe src="https://livetrack.garmin.com/session/373b1619-c70f-8c6c-8b35-e97ff6859400/token/D2BD2AF8C13949AEC9A7F9ABEA75A96" class="flex-1 border-none"></iframe>
-
-  <!-- Message Form Modal (hidden by default) -->
-  <div id="modal" class="hidden fixed inset-0 flex items-center justify-center z-50">
-    <div class="bg-white p-6 rounded shadow-lg w-full max-w-md text-center">
-      <h2 class="text-xl font-bold mb-4">Send a Message</h2>
-      <form id="messageForm" class="flex flex-col gap-2">
-        <input name="name" placeholder="Your name" required class="border p-2 rounded">
-        <textarea name="message" placeholder="Your message" required class="border p-2 rounded"></textarea>
-        <div class="flex justify-between">
-          <button type="button" id="closeModal" class="text-gray-600">Cancel</button>
-          <button type="submit" class="bg-orange-400 text-white px-3 py-1 rounded">Send</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    const modal = document.getElementById('modal');
-    const sendMessageBtn = document.getElementById('sendMessageBtn');
-    const closeModal = document.getElementById('closeModal');
-    const messageForm = document.getElementById('messageForm');
-
-    sendMessageBtn.addEventListener('click', () => modal.classList.remove('hidden'));
-    closeModal.addEventListener('click', () => modal.classList.add('hidden'));
-
-    messageForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const name = messageForm.name.value.trim() || 'Anonymous';
-      const message = messageForm.message.value.trim();
-
-      if (!message) return;
-
-      // Send to ntfy.sh topic
-      const topic = 'georgebashi';
-      await fetch(`https://ntfy.sh/${topic}`, {
-        method: 'POST',
-        body: message,
-        headers: { 'Title': `From ${name}` }
-      });
-
-      // Clear form and close modal
-      messageForm.reset();
-      modal.classList.add('hidden');
-    });
-  </script>
+  <iframe src="undefined" class="w-full h-[calc(100%-3rem)] border-none"></iframe>
 </body>
 </html>
