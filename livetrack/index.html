@@ -8,12 +8,15 @@
 </head>
 <body class="h-screen w-screen overflow-hidden bg-gray-100 flex flex-col relative">
   <!-- Top Bar -->
-  <div class="bg-gradient-to-r from-purple-400 via-pink-300 to-pink-400 text-gray-800 text-sm md:text-base p-2 md:p-3 text-center font-medium flex justify-between items-center">
-    <div>George is online and riding! 🚴‍♂️✨</div>
-    <button id="sendMessageBtn" class="bg-white bg-opacity-80 text-gray-800 font-semibold rounded px-3 py-1 hover:bg-opacity-100 transition">
-      Send me a Message (I’ll see it as I ride!)
+  <div class="bg-gradient-to-r from-purple-400 via-pink-300 to-pink-400 text-gray-800 text-base md:text-lg p-4 md:p-5 text-center font-medium flex justify-between items-center">
+  <div>George is online and riding! 🚴‍♂️✨</div>
+  <div class="flex items-center gap-2">
+    <span class="hidden md:inline text-xs md:text-sm text-gray-700">Share your support — I’ll see it live as I ride!</span>
+    <button id="sendMessageBtn" class="bg-white bg-opacity-80 text-gray-800 font-semibold rounded px-3 py-2 hover:bg-opacity-100 transition">
+      Send a Message
     </button>
   </div>
+</div>
 
   <!-- Fullscreen Iframe -->
   <iframe src="https://livetrack.garmin.com/session/e4227054-6f0f-81fd-b2f7-aa781601ec00/token/DC33408ADB622D56FE49F85201F2597" class="flex-1 border-none"></iframe>
