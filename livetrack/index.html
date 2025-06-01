@@ -5,35 +5,40 @@
   <title>George's LiveTrack</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <meta http-equiv="refresh" content="300">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="h-screen w-screen overflow-hidden bg-gray-100 flex flex-col relative">
   <!-- Top Bar -->
-  <div class="bg-gradient-to-r from-purple-400 via-pink-300 to-pink-400 text-gray-800 text-base md:text-lg p-4 md:p-5 text-center font-medium flex justify-between items-center">
-  <div>George is online and riding! 🚴‍♂️✨</div>
-  <div class="flex items-center gap-2">
-    <span class="hidden md:inline text-xs md:text-sm text-gray-700">Share your support — I’ll see it live as I ride!</span>
-    <button id="sendMessageBtn" class="bg-white bg-opacity-80 text-gray-800 font-semibold rounded px-3 py-2 hover:bg-opacity-100 transition">
-      Send a Message
+  <div class="bg-gradient-to-r from-purple-400 via-pink-300 to-pink-400 text-gray-800 text-sm md:text-base p-2 md:p-3 text-center font-medium flex justify-between items-center">
+    <div>George is online and riding! 🚴‍♂️✨</div>
+    <button id="sendMessageBtn" class="bg-white bg-opacity-80 text-gray-800 font-semibold rounded px-3 py-1 hover:bg-opacity-100 transition">
+      Send me a Message (I’ll see it as I ride!)
     </button>
   </div>
-</div>
 
   <!-- Fullscreen Iframe -->
   <iframe src="https://livetrack.garmin.com/session/e4227054-6f0f-81fd-b2f7-aa781601ec00/token/DC33408ADB622D56FE49F85201F2597" class="flex-1 border-none"></iframe>
 
   <!-- Message Form Modal (hidden by default) -->
-  <div id="modal" class="hidden fixed inset-0 flex items-center justify-center z-50">
-    <div class="bg-white p-6 rounded shadow-lg w-full max-w-md text-center">
-      <h2 class="text-xl font-bold mb-4">Send a Message</h2>
+  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded shadow-lg w-full max-w-md text-center relative">
+      <h2 class="text-xl font-bold mb-2">Send a Message</h2>
+      <p class="text-sm text-gray-600 mb-4">Your message will be sent directly to me, and I’ll see it live as I ride! 🚴‍♂️</p>
       <form id="messageForm" class="flex flex-col gap-2">
         <input name="name" placeholder="Your name" required class="border p-2 rounded">
         <textarea name="message" placeholder="Your message" required class="border p-2 rounded"></textarea>
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
           <button type="button" id="closeModal" class="text-gray-600">Cancel</button>
           <button type="submit" class="bg-orange-400 text-white px-3 py-1 rounded">Send</button>
         </div>
       </form>
+  
+      <!-- Sent Animation (hidden by default) -->
+      <div id="sentAnimation" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 rounded">
+        <svg class="w-12 h-12 text-green-500 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-green-600 font-semibold mt-2">Message sent!</span>
+      </div>
     </div>
   </div>
 
