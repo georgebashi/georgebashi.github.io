@@ -47,6 +47,7 @@
     const sendMessageBtn = document.getElementById('sendMessageBtn');
     const closeModal = document.getElementById('closeModal');
     const messageForm = document.getElementById('messageForm');
+    const sentAnimation = document.getElementById('sentAnimation');
 
     sendMessageBtn.addEventListener('click', () => modal.classList.remove('hidden'));
     closeModal.addEventListener('click', () => modal.classList.add('hidden'));
@@ -66,9 +67,17 @@
         headers: { 'Title': `From ${name}` }
       });
 
-      // Clear form and close modal
+      // Show animation
+      sentAnimation.classList.remove('hidden');
+
+      // Clear form
       messageForm.reset();
-      modal.classList.add('hidden');
+  
+      // Hide modal after a delay
+      setTimeout(() => {
+        sentAnimation.classList.add('hidden');
+        modal.classList.add('hidden');
+      }, 1500);
     });
   </script>
 </body>
